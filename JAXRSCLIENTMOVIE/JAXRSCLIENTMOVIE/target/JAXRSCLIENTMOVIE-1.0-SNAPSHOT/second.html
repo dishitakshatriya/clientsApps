@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <script>
+            fetch('http://localhost:8080/JAXRSCLIENTMOVIE/resources/home/40')
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(data) {
+                        for (var i=0; i<data.length;i++) {        
+                            var resultDiv = document.createElement('tr');
+                            resultDiv.innerHTML = 
+                            + data[i].contentId + ' </th><td>'
+                            + data[i].category + '</td><td>'
+                            + data[i].title + '</td><td>'
+                            + data[i].genre + '</td><td>'
+                            + data[i].description + '</td><td>'
+                            + data[i].producer + '</td><td>'
+                            + data[i].director + '</td><td>'
+                            + data[i].duration + '</td><td>'
+                            + data[i].dataPublished + '</td><td>'
+                            + data[i].thumbnail + '</td><td>'
+                            + data[i].seasonNo + '</td><td>'
+                            + data[i].episodeNo + '</td><td>'
+                            + data[i].episodeTitle + '</td><td>'
+                            + '</td>';      
+                            document.getElementById('resultContainer').appendChild(resultDiv);
+                        }
+                    })
+                    
+                 </script>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <div id="container">
+                <table class="table">     
+                    <thead>
+                        <tr >
+                            <th>Content ID</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Genre</th> 
+                            <th>Description</th>
+                            <th>Producer</th>
+                            <th>Director</th>
+                            <th>Duration</th>
+                            <th>Date Published</th>
+                            <th>Thumbnail Image</th>
+                            <th>Season</th>
+                            <th>Episode</th>
+                            <th>Episode title</th>
+                        </tr>
+                    </thead>  
+                    <tbody id="resultContainer">
+                    </tbody>
+                </table>
+        </div>
+    </body>
+</html>
